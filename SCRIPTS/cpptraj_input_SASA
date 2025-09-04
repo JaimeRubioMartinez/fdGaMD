@@ -1,0 +1,12 @@
+# Computed for every "reactive" individual ligand traj.
+
+ cpptraj.MPI >  cpptraj_input_SASA.out << EOF 
+ parm OneLig.NoWat.system_name.top [OneLigNoWat]
+ 
+ trajin lig_XXX.nc 1 last 1  parm [OneLigNoWat] 
+ molsurf  out  lig_XXX_SASA.out :1-num_res_prot_plus_one
+ molsurf  out  lig_XXX_SASA.out :1-num_res_prot
+ molsurf  out  lig_XXX_SASA.out :res_lig
+ run 
+
+EOF

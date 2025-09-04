@@ -1,0 +1,10 @@
+# Computed for every "reactive" individual ligand traj.
+
+ cpptraj.MPI > input_cpptraj_HB.out << EOF 
+ parm OneLig.NoWat.system_name.top [OneLigNoWat]
+ 
+ trajin lig_XXX.nc 1 last  1 parm [OneLigNoWat] 
+ hbond :* avgout lig_XXX_avg-hb_atoms.dat printatomnum nointramol
+ run 
+
+EOF

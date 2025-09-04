@@ -1,0 +1,13 @@
+# Computed for every "reactive" individual ligand traj.
+
+ cpptraj.MPI  >  cpptraj_input_IE.out  << EOF 
+ parm  OneLig.NoWat.system_name.top  [OneLigNoWat] 
+
+ trajin  lig_XXX.nc  1 last 10  parm [OneLigNoWat]
+ createcrd CRD1 
+ run 
+
+ crdaction CRD1 lie  :res_lig :1-num_res_prot   out  lig_XXX_LIE.dat
+ run 
+
+EOF
